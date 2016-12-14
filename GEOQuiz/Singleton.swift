@@ -11,6 +11,7 @@ class Singleton {
     static let sharedInstance = Singleton()
     
     var score = 0
+    var answer = false
     
     public func increment(){
         score += 1
@@ -18,5 +19,21 @@ class Singleton {
     
     public func getScore() -> Int{
         return score
+    }
+    
+    public func answerCorrectOrNot() ->Bool{
+        return answer
+    }
+    
+    public func getItCorrectly() -> Bool{
+        return answer == true
+    }
+    
+    public func setFalse(){
+        answer = false
+    }
+    
+    public func setTrue(){
+        answer = true
     }
 }

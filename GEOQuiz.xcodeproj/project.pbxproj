@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44A53DE41E00BACF0080A5CD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A53DE31E00BACF0080A5CD /* MapViewController.swift */; };
+		44A53DE61E00DACE0080A5CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A53DE51E00DACE0080A5CD /* ViewController.swift */; };
 		44F957661DFFBDC300C9C391 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F957651DFFBDC300C9C391 /* AppDelegate.swift */; };
-		44F957681DFFBDC300C9C391 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F957671DFFBDC300C9C391 /* MapViewController.swift */; };
 		44F9576B1DFFBDC300C9C391 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44F957691DFFBDC300C9C391 /* Main.storyboard */; };
 		44F9576D1DFFBDC300C9C391 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44F9576C1DFFBDC300C9C391 /* Assets.xcassets */; };
 		44F957701DFFBDC300C9C391 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44F9576E1DFFBDC300C9C391 /* LaunchScreen.storyboard */; };
@@ -39,9 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		44A53DE31E00BACF0080A5CD /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		44A53DE51E00DACE0080A5CD /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		44F957621DFFBDC300C9C391 /* GEOQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GEOQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44F957651DFFBDC300C9C391 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		44F957671DFFBDC300C9C391 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		44F9576A1DFFBDC300C9C391 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		44F9576C1DFFBDC300C9C391 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44F9576F1DFFBDC300C9C391 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -132,13 +134,14 @@
 			children = (
 				44F957971DFFCF1D00C9C391 /* input.txt */,
 				44F957651DFFBDC300C9C391 /* AppDelegate.swift */,
-				44F957671DFFBDC300C9C391 /* MapViewController.swift */,
 				44F957691DFFBDC300C9C391 /* Main.storyboard */,
 				44F9576C1DFFBDC300C9C391 /* Assets.xcassets */,
 				44F9576E1DFFBDC300C9C391 /* LaunchScreen.storyboard */,
 				44F957711DFFBDC300C9C391 /* Info.plist */,
 				44F957991E006B4300C9C391 /* GameTableViewController.swift */,
 				44F9579B1E00AB7300C9C391 /* Singleton.swift */,
+				44A53DE31E00BACF0080A5CD /* MapViewController.swift */,
+				44A53DE51E00DACE0080A5CD /* ViewController.swift */,
 			);
 			path = GEOQuiz;
 			sourceTree = "<group>";
@@ -348,10 +351,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44A53DE61E00DACE0080A5CD /* ViewController.swift in Sources */,
 				44F9579A1E006B4300C9C391 /* GameTableViewController.swift in Sources */,
-				44F957681DFFBDC300C9C391 /* MapViewController.swift in Sources */,
 				44F957661DFFBDC300C9C391 /* AppDelegate.swift in Sources */,
 				44F9579C1E00AB7300C9C391 /* Singleton.swift in Sources */,
+				44A53DE41E00BACF0080A5CD /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

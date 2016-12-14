@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,41 +19,76 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Mo0-GN-S6J" kind="relationship" relationship="rootViewController" id="X2b-Fv-Fpu"/>
+                        <segue destination="Rza-bM-uEe" kind="relationship" relationship="rootViewController" id="fPO-Nh-mqA"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Or-um-Q2p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-145" y="163"/>
+            <point key="canvasLocation" x="-530" y="176"/>
         </scene>
-        <!--Map View Controller-->
-        <scene sceneID="aVR-Nh-JKq">
+        <!--View Controller-->
+        <scene sceneID="yL5-aM-Dtf">
             <objects>
-                <viewController id="Mo0-GN-S6J" customClass="MapViewController" customModule="GEOQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Rza-bM-uEe" customClass="ViewController" customModule="GEOQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="gfK-2e-cxF"/>
-                        <viewControllerLayoutGuide type="bottom" id="rb0-p3-lho"/>
+                        <viewControllerLayoutGuide type="top" id="sxm-TA-Ikt"/>
+                        <viewControllerLayoutGuide type="bottom" id="Z5M-S3-0HC"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bIY-r8-hKH">
+                    <view key="view" contentMode="scaleToFill" id="bah-3n-dkK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AZt-qR-FKu">
+                                <rect key="frame" x="0.0" y="148" width="375" height="519"/>
+                                <connections>
+                                    <segue destination="4AP-3h-I96" kind="embed" id="XWK-pF-tNS"/>
+                                </connections>
+                            </containerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L05-aQ-btT">
+                                <rect key="frame" x="16" y="72" width="148" height="68"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ra-WS-AK2">
+                                <rect key="frame" x="172" y="73" width="187" height="65"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="L05-aQ-btT" firstAttribute="top" secondItem="sxm-TA-Ikt" secondAttribute="bottom" constant="8" id="DcG-8h-I8Z"/>
+                            <constraint firstItem="0Ra-WS-AK2" firstAttribute="top" secondItem="sxm-TA-Ikt" secondAttribute="bottom" constant="9" id="Dns-RE-WPz"/>
+                            <constraint firstItem="AZt-qR-FKu" firstAttribute="top" secondItem="sxm-TA-Ikt" secondAttribute="bottom" constant="84" id="GjH-Xk-e7y"/>
+                            <constraint firstItem="Z5M-S3-0HC" firstAttribute="top" secondItem="0Ra-WS-AK2" secondAttribute="bottom" constant="529" id="IFz-w0-cHl"/>
+                            <constraint firstItem="0Ra-WS-AK2" firstAttribute="leading" secondItem="bah-3n-dkK" secondAttribute="leadingMargin" constant="156" id="LYL-dg-s3h"/>
+                            <constraint firstItem="AZt-qR-FKu" firstAttribute="bottom" secondItem="Z5M-S3-0HC" secondAttribute="top" id="RiU-DM-sNc"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="L05-aQ-btT" secondAttribute="leading" id="WS6-Dh-UcQ"/>
+                            <constraint firstItem="Z5M-S3-0HC" firstAttribute="top" secondItem="L05-aQ-btT" secondAttribute="bottom" constant="527" id="fWy-hf-wxn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AZt-qR-FKu" secondAttribute="trailing" constant="-16" id="lKw-92-UMa"/>
+                            <constraint firstItem="AZt-qR-FKu" firstAttribute="leading" secondItem="bah-3n-dkK" secondAttribute="leadingMargin" constant="-16" id="pMT-WR-Zin"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0Ra-WS-AK2" secondAttribute="trailing" id="vek-z0-qXJ"/>
+                            <constraint firstItem="0Ra-WS-AK2" firstAttribute="leading" secondItem="L05-aQ-btT" secondAttribute="trailing" constant="8" id="w8g-Oc-Yw2"/>
+                            <constraint firstItem="0Ra-WS-AK2" firstAttribute="leading" secondItem="L05-aQ-btT" secondAttribute="trailing" constant="8" id="xLO-DP-bYc"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="DUR-Uw-mlg"/>
+                    <navigationItem key="navigationItem" id="uCS-eE-b4o"/>
                     <connections>
-                        <segue destination="dDS-Td-juj" kind="show" identifier="gameStart" id="xcX-6f-JCk"/>
+                        <outlet property="scoreLabel" destination="0Ra-WS-AK2" id="Igr-mS-Idy"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ddL-hN-hyp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cxZ-V7-g5R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="677" y="163"/>
+            <point key="canvasLocation" x="164" y="175.86206896551727"/>
         </scene>
         <!--Game Table View Controller-->
         <scene sceneID="C1p-sI-2sd">
             <objects>
                 <tableViewController id="dDS-Td-juj" customClass="GameTableViewController" customModule="GEOQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="93" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ycl-zE-hhW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -83,6 +119,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ktl-b1-7Dj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1482.4000000000001" y="190.25487256371815"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="uNW-x6-wId">
+            <objects>
+                <viewController id="4AP-3h-I96" customClass="MapViewController" customModule="GEOQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Vn6-ys-r60"/>
+                        <viewControllerLayoutGuide type="bottom" id="DGF-Wh-rbs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jWX-hT-kU7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="519"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="dDS-Td-juj" kind="show" identifier="gameStart" id="HcN-jk-24T"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xpJ-kE-Oqk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="816" y="368"/>
         </scene>
     </scenes>
 </document>

@@ -12,7 +12,6 @@ import UIKit
 
 class GameTableViewController: UITableViewController {
     
-//    var score = Singleton.sharedInstance.getScore()
 
     var countryName = String()
     
@@ -20,10 +19,12 @@ class GameTableViewController: UITableViewController {
     
     var correctAnswer : String?
     
+    var getPoint = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = countryName
-//        print(list)
+        Singleton.sharedInstance.setFalse()
     }
 
     // MARK: - Table view data source
@@ -47,13 +48,18 @@ class GameTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
         if list[indexPath.row] == correctAnswer!{
-            print("You are correct!")
-            Singleton.sharedInstance.increment()
-            let score = Singleton.sharedInstance.getScore()
-            print(score)
-            let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
+            if getPoint == false{
+               Singleton.sharedInstance.increment()
+                Singleton.sharedInstance.setTrue()
+                getPoint = true
+            }
             selectedCell.contentView.backgroundColor = UIColor.green
+        }else{
+            selectedCell.contentView.backgroundColor = UIColor.red
         }
     }
+    
+    
 }

@@ -13,8 +13,9 @@ import CoreData
 
 
 class MapViewController: UIViewController, GMSMapViewDelegate {
-
     
+    
+
     
     
     var latitude = [Double]()
@@ -34,13 +35,12 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
     
     var randomCapitals=[String]()
     
+    override func viewWillAppear(_ animated: Bool) {
+        removeMarkerFromMap()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        randomCapitals = [String]()
-//        print(randomCapitals)
-        
         
         addLocations()
         GMSServices.provideAPIKey("AIzaSyBRLTH01_cVHGWz7kOPieKgDgpyGteZyN4");
@@ -49,13 +49,29 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         self.view = mapView
         
         
-        
         for i in 0..<capitals.count{
             let currentLocation = CLLocationCoordinate2DMake(latitude[i], longitude[i])
             markers.append(GMSMarker(position:currentLocation))
             markers[i].title = countries[i]
-//            markers[i].map = mapView
-//            mapView?.delegate = self
+            markers[i].map = mapView
+            mapView?.delegate = self
+        }
+  
+    }
+    
+    //remove marker only when user guess the answer correctly
+    func removeMarkerFromMap(){
+        if let capital = capitalChosen {
+            if Singleton.sharedInstance.getItCorrectly(){
+                if let index = capitals.index(of: capital){
+                    capitals.remove(at: index)
+                    latitude.remove(at: index)
+                    longitude.remove(at: index)
+                    countries.remove(at: index)
+                    markers[index].map = nil  //remove marker
+                    markers.remove(at: index)
+                }
+            }
         }
     }
     
@@ -64,7 +80,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
             countryChosen = marker.title
             performSegue(withIdentifier: "gameStart", sender: marker)
             
-//            print("haha")
             return true;
         }
         else{
@@ -87,7 +102,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
                     var temp = [String]()
                     
                     temp = str.components(separatedBy: "\t")
-
+                    
                     
                     if temp[0] != ""{
                         let endIndex = temp[2].index(temp[2].endIndex, offsetBy: -1)
@@ -102,7 +117,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
                         capitals.append(temp[1])
                         countries.append(temp[0])
                     }
-                
+                    
                     if temp[0] != ""{
                         let endIndex2 = temp[3].index(temp[3].endIndex, offsetBy: -1)
                         let truncated2 = temp[3].substring(to: endIndex2)
@@ -129,7 +144,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
             let vc = segue.destination as! GameTableViewController
             vc.countryName = ((sender as! GMSMarker).title!)
             randomize()
-            vc.list = randomCapitals
+            vc.list = randomCapitals.shuffled()
             vc.correctAnswer = capitalChosen
             randomCapitals = [String]() //here
         }
@@ -158,6 +173,29 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         let ran = num % (size)
         return ran
     }
+}
 
+extension MutableCollection where Index == Int {
+    /// Shuffle the elements of `self` in-place.
+    mutating func shuffle() {
+        // empty and single-element collections don't shuffle
+        if count < 2 { return }
+        
+        for i in startIndex ..< endIndex - 1 {
+            let j = Int(arc4random_uniform(UInt32(endIndex - i))) + i
+            if i != j {
+                swap(&self[i], &self[j])
+            }
+        }
+    }
+}
+
+extension Collection {
+    /// Return a copy of `self` with its elements shuffled
+    func shuffled() -> [Iterator.Element] {
+        var list = Array(self)
+        list.shuffle()
+        return list
+    }
 }
 
